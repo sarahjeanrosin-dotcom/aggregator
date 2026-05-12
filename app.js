@@ -101,10 +101,19 @@ function renderPersons() {
         </div>
         <button class="remove-btn" onclick="removePerson('${p.id}')">✕</button>
       </div>
-      <div class="transcript-label">Paste transcript below</div>
-      <textarea class="transcript-area"
-        placeholder="Paste the full interview here — questions, answers, tangents and all. The AI will extract what's relevant."
-        oninput="updateField('${p.id}','transcript',this.value)">${esc(p.transcript)}</textarea>`;
+      <div class="transcript-label">
+        Paste or drop transcript below
+        <label class="upload-label">↑ Upload file<input type="file" accept=".txt,.md,.docx" style="display:none" onchange="fileChosen('${p.id}',this)"></label>
+      </div>
+      <div class="drop-zone" id="dz-${p.id}"
+        ondragover="dzOver(event,'${p.id}')"
+        ondragleave="dzLeave(event,'${p.id}')"
+        ondrop="dzDrop(event,'${p.id}')">
+        <textarea class="transcript-area"
+          placeholder="Paste the full interview here — or drag and drop a .txt or .docx file."
+          oninput="updateField('${p.id}','transcript',this.value)">${esc(p.transcript)}</textarea>
+        <div class="drop-overlay"><span>Drop file to load transcript</span></div>
+      </div>`;
     c.appendChild(d);
   });
   document.getElementById('person-count').textContent =
@@ -119,6 +128,49 @@ function updateField(id, field, val) {
     const av = document.getElementById('av-' + id);
     if (av) av.textContent = val ? initials(val) : '?';
   }
+}
+
+// ── FILE HANDLING ─────────────────────────────────────────────────────
+function dzOver(e, id) {
+  e.preventDefault();
+  document.getElementById('dz-' + id).classList.add('drag-over');
+}
+
+function dzLeave(e, id) {
+  const dz = document.getElementById('dz-' + id);
+  if (!dz.contains(e.relatedTarget)) dz.classList.remove('drag-over');
+}
+
+function dzDrop(e, id) {
+  e.preventDefault();
+  document.getElementById('dz-' + id).classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) loadFile(id, file);
+}
+
+function fileChosen(id, input) {
+  if (input.files[0]) loadFile(id, input.files[0]);
+  input.value = '';
+}
+
+async function loadFile(id, file) {
+  const ext = file.name.split('.').pop().toLowerCase();
+  let text = '';
+  try {
+    if (ext === 'docx') {
+      const buf = await file.arrayBuffer();
+      const result = await mammoth.extractRawText({ arrayBuffer: buf });
+      text = result.value;
+    } else {
+      text = await file.text();
+    }
+  } catch (err) {
+    setStatus('Could not read file: ' + err.message, false);
+    return;
+  }
+  updateField(id, 'transcript', text);
+  const ta = document.querySelector('#dz-' + id + ' textarea');
+  if (ta) ta.value = text;
 }
 
 // ── PROMPTS ───────────────────────────────────────────────────────────
