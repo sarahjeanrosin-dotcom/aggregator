@@ -400,12 +400,11 @@ body {
 .pct-num { font-size: 12px; font-weight: 500; color: var(--ink3); width: 36px; text-align: right; flex-shrink: 0; }
 
 /* ── GENEA BRAND ELEMENTS ────────────────────────────────────── */
-.genea-logo { display: flex; align-items: center; gap: 8px; }
-.genea-mark-svg { width: 20px; height: 24px; flex-shrink: 0; }
-.genea-wordmark {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px; font-weight: 700;
-  color: white; letter-spacing: 0.07em;
+.genea-logo { display: flex; align-items: center; }
+.genea-logo-img {
+  height: 22px; width: auto;
+  /* invert the two-color logo to all-white for the dark topbar */
+  filter: brightness(0) invert(1);
 }
 .topbar-divider {
   width: 1px; height: 22px;
@@ -423,12 +422,7 @@ body {
 /* Lock screen Genea brand */
 .lock-brand {
   display: flex; align-items: center; justify-content: center;
-  gap: 10px; margin-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
 }
-.lock-brand-mark { width: 22px; height: 26px; flex-shrink: 0; }
-.lock-brand-name {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px; font-weight: 700;
-  color: var(--navy); letter-spacing: 0.07em;
-}
+.lock-brand-logo { height: 32px; width: auto; }
 .lock-gator { display: flex; justify-content: center; margin-bottom: 0.75rem; }
