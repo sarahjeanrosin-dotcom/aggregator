@@ -3,15 +3,15 @@
   --ink: #18181a;
   --ink2: #42424a;
   --ink3: #888896;
-  --paper: #f6f5f2;
-  --paper2: #eceae4;
+  --paper: #F5F4F0;        /* Genea Sand */
+  --paper2: #ece9e0;
   --paper3: #dedad0;
   --white: #ffffff;
-  --navy: #1b2d45;
-  --navy2: #2e4a6e;
-  --navy-light: #e8edf5;
-  --teal: #1a4a42;
-  --teal-light: #e6f0ee;
+  --navy: #003865;          /* Newport Blue */
+  --navy2: #005B96;         /* Mid blue */
+  --navy-light: #deeef8;    /* Light Newport tint */
+  --teal: #009CDE;          /* Catalina Blue */
+  --teal-light: #ddf1fb;    /* Light Catalina tint */
   --amber: #5c3d0e;
   --amber-light: #f5eddf;
   --rose: #5c1f1f;
@@ -27,7 +27,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: var(--paper);
   color: var(--ink);
   min-height: 100vh;
@@ -57,7 +57,7 @@ body {
   color: var(--ink3); margin-bottom: 10px;
 }
 .lock-title {
-  font-family: 'Lora', serif;
+  font-family: 'Montserrat', sans-serif; font-weight: 700;
   font-size: 26px; color: var(--navy);
   margin-bottom: 6px; line-height: 1.25;
 }
@@ -66,7 +66,7 @@ body {
   width: 100%; padding: 11px 14px;
   border: 1.5px solid var(--paper3);
   border-radius: var(--r);
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 15px; background: var(--paper);
   color: var(--ink); text-align: center;
   letter-spacing: 4px; margin-bottom: 12px;
@@ -79,7 +79,7 @@ body {
   width: 100%; padding: 11px;
   background: var(--navy); color: white;
   border: none; border-radius: var(--r);
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 15px; font-weight: 500; cursor: pointer;
   transition: opacity 0.15s;
 }
@@ -104,7 +104,7 @@ body {
   background: white; border-radius: 12px;
   padding: 3rem 2.5rem; width: 420px;
 }
-.setup-title { font-family: 'Lora', serif; font-size: 22px; color: var(--navy); margin-bottom: 6px; }
+.setup-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 22px; color: var(--navy); margin-bottom: 6px; }
 .setup-sub { font-size: 13px; color: var(--ink3); margin-bottom: 2rem; line-height: 1.6; }
 .setup-label {
   font-size: 11px; font-weight: 500; color: var(--ink3);
@@ -113,7 +113,7 @@ body {
 .setup-input {
   width: 100%; padding: 11px 14px;
   border: 1.5px solid var(--paper3); border-radius: var(--r);
-  font-family: 'IBM Plex Sans', sans-serif; font-size: 14px;
+  font-family: 'Montserrat', sans-serif; font-size: 14px;
   background: var(--paper); color: var(--ink);
   outline: none; transition: border-color 0.2s; margin-bottom: 1.25rem;
 }
@@ -128,7 +128,7 @@ body {
 .setup-btn {
   width: 100%; padding: 12px;
   background: var(--navy); color: white; border: none;
-  border-radius: var(--r); font-family: 'Lora', serif;
+  border-radius: var(--r); font-family: 'Montserrat', sans-serif; font-weight: 700;
   font-size: 17px; cursor: pointer; transition: opacity 0.15s;
 }
 .setup-btn:hover { opacity: 0.88; }
@@ -143,7 +143,7 @@ body {
   height: 54px; position: sticky; top: 0; z-index: 100;
 }
 .topbar-left { display: flex; align-items: center; gap: 14px; }
-.topbar-title { font-family: 'Lora', serif; font-size: 17px; color: white; letter-spacing: 0.01em; }
+.topbar-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 17px; color: white; letter-spacing: 0.01em; }
 .topbar-badge {
   font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
   background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.7);
@@ -154,14 +154,14 @@ body {
   font-size: 12px; color: rgba(255,255,255,0.55);
   background: none; border: 1px solid rgba(255,255,255,0.15);
   border-radius: var(--r); padding: 5px 11px; cursor: pointer;
-  font-family: 'IBM Plex Sans', sans-serif; transition: all 0.15s;
+  font-family: 'Montserrat', sans-serif; transition: all 0.15s;
 }
 .topbar-btn:hover { color: white; border-color: rgba(255,255,255,0.4); }
 
 .main { max-width: 920px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
 
 .page-header { margin-bottom: 2rem; }
-.page-title { font-family: 'Lora', serif; font-size: 24px; color: var(--navy); margin-bottom: 4px; }
+.page-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 24px; color: var(--navy); margin-bottom: 4px; }
 .page-sub { font-size: 13px; color: var(--ink3); }
 
 /* ── TABS ─────────────────────────────────────────────────────── */
@@ -173,7 +173,7 @@ body {
   padding: 10px 20px; font-size: 13.5px; cursor: pointer;
   border: none; background: none; color: var(--ink3);
   border-bottom: 2px solid transparent; margin-bottom: -1.5px;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   transition: all 0.15s; letter-spacing: 0.01em;
 }
 .tab:hover:not(.active) { color: var(--ink); }
@@ -199,7 +199,7 @@ body {
 .name-input {
   font-size: 14px; font-weight: 500; border: none;
   background: none; color: var(--ink); padding: 0;
-  width: 200px; font-family: 'IBM Plex Sans', sans-serif; outline: none;
+  width: 200px; font-family: 'Montserrat', sans-serif; outline: none;
 }
 .name-input::placeholder { color: var(--ink3); font-weight: 400; }
 .remove-btn {
@@ -214,7 +214,7 @@ body {
 }
 .transcript-area {
   width: 100%; min-height: 140px; padding: 12px;
-  font-size: 13.5px; font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13.5px; font-family: 'Montserrat', sans-serif;
   border: 1px solid var(--paper3); border-radius: var(--r);
   background: var(--paper); color: var(--ink);
   resize: vertical; line-height: 1.65; outline: none;
@@ -227,7 +227,7 @@ body {
   gap: 8px; width: 100%; padding: 12px;
   border: 1.5px dashed var(--paper3); border-radius: var(--r-lg);
   background: none; cursor: pointer; color: var(--ink3);
-  font-size: 14px; font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px; font-family: 'Montserrat', sans-serif;
   transition: all 0.15s; margin-top: 4px;
 }
 .add-btn:hover { border-color: var(--navy); color: var(--navy); background: var(--navy-light); }
@@ -235,7 +235,7 @@ body {
 .analyze-btn {
   display: block; width: 100%; padding: 13px;
   background: var(--navy); color: white; border: none;
-  border-radius: var(--r-lg); font-family: 'Lora', serif;
+  border-radius: var(--r-lg); font-family: 'Montserrat', sans-serif; font-weight: 700;
   font-size: 17px; cursor: pointer; margin-top: 1.5rem;
   transition: opacity 0.15s; letter-spacing: 0.02em;
 }
@@ -301,7 +301,7 @@ body {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 8px 15px; border-radius: var(--r);
   font-size: 13px; cursor: pointer;
-  font-family: 'IBM Plex Sans', sans-serif; transition: all 0.15s;
+  font-family: 'Montserrat', sans-serif; transition: all 0.15s;
 }
 .tbtn-outline { border: 1px solid var(--paper3); background: white; color: var(--ink2); }
 .tbtn-outline:hover { border-color: var(--ink3); color: var(--ink); }
@@ -315,7 +315,7 @@ body {
 .conf-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
 .conf-sub   { font-size: 12px; color: var(--ink3); margin-bottom: 10px; }
 .conf-text {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11.5px;
+  font-family: 'Courier New', Courier, monospace; font-size: 11.5px;
   background: white; border: 1px solid var(--paper3);
   border-radius: var(--r); padding: 12px;
   white-space: pre-wrap; color: var(--ink2);
@@ -325,7 +325,7 @@ body {
   padding: 6px 13px; border: 1px solid var(--paper3);
   border-radius: var(--r); font-size: 12px; cursor: pointer;
   background: white; color: var(--ink2);
-  font-family: 'IBM Plex Sans', sans-serif; transition: all 0.15s;
+  font-family: 'Montserrat', sans-serif; transition: all 0.15s;
 }
 .copy-btn:hover { background: var(--paper); }
 
@@ -335,13 +335,13 @@ body {
   padding: 7px 16px; border: 1px solid var(--paper3);
   border-radius: 20px; font-size: 13px; cursor: pointer;
   background: white; color: var(--ink3);
-  font-family: 'IBM Plex Sans', sans-serif; transition: all 0.15s;
+  font-family: 'Montserrat', sans-serif; transition: all 0.15s;
 }
 .ppill:hover { border-color: var(--ink3); color: var(--ink); }
 .ppill.active { background: var(--navy); color: white; border-color: var(--navy); }
 
 .empty-state { text-align: center; padding: 4rem 1rem; color: var(--ink3); }
-.empty-title { font-family: 'Lora', serif; font-size: 18px; color: var(--ink2); margin-bottom: 6px; }
+.empty-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px; color: var(--ink2); margin-bottom: 6px; }
 
 .person-bio { display: flex; align-items: flex-start; gap: 13px; margin-bottom: 14px; }
 .notable-text { font-size: 12px; color: var(--ink3); font-style: italic; margin-top: 3px; }
@@ -350,7 +350,7 @@ body {
   display: flex; align-items: baseline;
   justify-content: space-between; margin-bottom: 1.75rem;
 }
-.section-title { font-family: 'Lora', serif; font-size: 22px; color: var(--navy); }
+.section-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 22px; color: var(--navy); }
 
 .legend {
   display: flex; flex-wrap: wrap; gap: 12px;
@@ -385,7 +385,7 @@ body {
 .vtoggle {
   padding: 6px 16px; border: none; border-radius: 6px;
   font-size: 13px; cursor: pointer; font-weight: 400;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: none; color: var(--ink3); transition: all 0.15s;
 }
 .vtoggle.active { background: white; color: var(--navy); font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
@@ -398,3 +398,37 @@ body {
 .pct-bar-bg   { flex: 1; height: 8px; background: var(--paper2); border-radius: 4px; overflow: hidden; }
 .pct-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
 .pct-num { font-size: 12px; font-weight: 500; color: var(--ink3); width: 36px; text-align: right; flex-shrink: 0; }
+
+/* ── GENEA BRAND ELEMENTS ────────────────────────────────────── */
+.genea-logo { display: flex; align-items: center; gap: 8px; }
+.genea-mark-svg { width: 20px; height: 24px; flex-shrink: 0; }
+.genea-wordmark {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px; font-weight: 700;
+  color: white; letter-spacing: 0.07em;
+}
+.topbar-divider {
+  width: 1px; height: 22px;
+  background: rgba(255,255,255,0.2);
+  margin: 0 14px; flex-shrink: 0;
+}
+.topbar-brand { display: flex; align-items: center; gap: 10px; }
+.gator-icon { flex-shrink: 0; }
+.topbar-title-stack { display: flex; flex-direction: column; }
+.topbar-sub {
+  font-size: 10px; color: rgba(255,255,255,0.45);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px;
+}
+
+/* Lock screen Genea brand */
+.lock-brand {
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; margin-bottom: 1.25rem;
+}
+.lock-brand-mark { width: 22px; height: 26px; flex-shrink: 0; }
+.lock-brand-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--navy); letter-spacing: 0.07em;
+}
+.lock-gator { display: flex; justify-content: center; margin-bottom: 0.75rem; }

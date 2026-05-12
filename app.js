@@ -389,15 +389,15 @@ function downloadPDF() {
     let y = MT;
 
     const C = {
-      navy:   [27,  45,  69], navy2:  [46,  74, 110],
-      ink:    [24,  24,  26], ink2:   [66,  66,  74], ink3: [136, 136, 150],
-      paper2: [236, 234, 228], white: [255, 255, 255],
-      rose:   [92,  31,  31], roseL:  [245, 232, 232],
-      slate:  [42,  53,  69], slateL: [234, 236, 240],
-      amber:  [92,  61,  14], amberL: [245, 237, 223],
-      navy2L: [232, 237, 245],
-      teal:   [26,  74,  66], tealL:  [230, 240, 238],
-      gold:   [107, 79,  18], goldL:  [247, 240, 224],
+      navy:   [0,   56,  101], navy2:  [0,   91,  150],
+      ink:    [24,  24,  26],  ink2:   [66,  66,  74], ink3: [136, 136, 150],
+      paper2: [236, 234, 228], white:  [255, 255, 255],
+      rose:   [92,  31,  31],  roseL:  [245, 232, 232],
+      slate:  [42,  53,  69],  slateL: [234, 236, 240],
+      amber:  [92,  61,  14],  amberL: [245, 237, 223],
+      navy2L: [222, 238, 248],
+      teal:   [0,   156, 222], tealL:  [221, 241, 251],
+      gold:   [107, 79,  18],  goldL:  [247, 240, 224],
     };
 
     const BAR_CAT = {
@@ -566,10 +566,10 @@ async function downloadDocx() {
     const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     const agg  = aggData;
     const reps = Object.values(results);
-    const NAVY = '1b2d45', INK2 = '42424a', INK3 = '888896';
+    const NAVY = '003865', INK2 = '42424a', INK3 = '888896';
     const FILLS = {
       confusion: 'f5eaea', company: 'eaecf0', objection: 'f5eddf',
-      question: 'e8edf5', extra: 'e6f0ee', fix: 'f7f0e0', priority: 'dce6f1',
+      question: 'e8edf5', extra: 'ddf1fb', fix: 'f7f0e0', priority: 'dce6f1',
     };
 
     const b0 = { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' };
@@ -638,7 +638,7 @@ async function downloadDocx() {
       ...(agg.high_priority_fixes?.length ? [
         h1('Top Priority Fixes'),
         new Paragraph({ children: [new TextRun({ text: 'Highest-impact changes to make first.', size: 20, color: INK3, italics: true, font: 'Arial' })], spacing: { before: 0, after: 100 } }),
-        ...agg.high_priority_fixes.map(i => bul(i, '1b2d45')),
+        ...agg.high_priority_fixes.map(i => bul(i, NAVY)),
         sp(),
       ] : []),
 
@@ -673,15 +673,15 @@ async function downloadDocx() {
       }),
     ];
 
-    const document = new Document({
+    const wordDoc = new Document({
       numbering: { config: [{ reference: 'bul', levels: [{ level: 0, format: LevelFormat.BULLET, text: '•', alignment: AlignmentType.LEFT, style: { paragraph: { indent: { left: 720, hanging: 360 } } } }] }] },
       sections: [{ properties: { page: { size: { width: 12240, height: 15840 }, margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 } } }, children }],
     });
 
-    const buf  = await Packer.toBuffer(document);
+    const buf  = await Packer.toBuffer(wordDoc);
     const blob = new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
     const url  = URL.createObjectURL(blob);
-    const a    = document.createElement('a');
+    const a    = window.document.createElement('a');
     a.href = url; a.download = 'Demo_Deck_Feedback_Report.docx'; a.click();
     URL.revokeObjectURL(url);
   } catch (e) {
