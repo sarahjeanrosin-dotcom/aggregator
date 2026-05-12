@@ -519,15 +519,16 @@ function downloadPDF() {
       divider();
       sectionHeader('Top Priority Fixes', C.navy);
       const bItems = aggData.high_priority_fixes;
-      const bH = bItems.length * 18 + 20;
+      doc.setFontSize(10);
+      const itemLines = bItems.map(item => doc.splitTextToSize(item, CW - 30));
+      const bH = itemLines.reduce((sum, lines) => sum + Math.max(18, lines.length * 13 + 4), 0) + 20;
       checkPage(bH + 10);
       setFill(C.navy2L); doc.roundedRect(ML, y - 4, CW, bH, 4, 4, 'F');
       bItems.forEach((item, i) => {
+        const lines = itemLines[i];
         doc.setFont('helvetica', 'bold'); doc.setFontSize(10); setRGB(C.navy2);
         doc.text(`${i + 1}.`, ML + 10, y + 10);
         doc.setFont('helvetica', 'normal'); setRGB(C.navy);
-        const lines = doc.splitTextToSize(item, CW - 30);
-        doc.setFontSize(10);
         lines.forEach((ln, li) => doc.text(ln, ML + 24, y + 10 + li * 13));
         y += Math.max(18, lines.length * 13 + 4);
       });
